@@ -138,25 +138,27 @@ function decreaseCount(id) {
   updateSummary(); // refresh totals
 }
 
+//Booking Section Submit Form
+function handleBooking(event) {
+  if (event) event.preventDefault(); // stop form reload
 
-//Booking submit section
-/*function handleBooking() {
-  const location = document.getElementById('location').value.trim();
-  const travelDate = document.getElementById('travel-date').value.trim();
-  const packageSelect = document.getElementById('package').value.trim();
-  const name = document.querySelector('input[name="name"]').value.trim();
-  const contact = document.querySelector('input[name="contact"]').value.trim();
-  const email = document.querySelector('input[name="email"]').value.trim();
+  // Get form values
+  const name = document.querySelector('input[name="name"]');
+  const contact = document.querySelector('input[name="contact"]');
+  const email = document.querySelector('input[name="email"]');
+  const location = document.getElementById("location");
+  const packageSelect = document.getElementById("package");
 
-  if (!location || !travelDate || !packageSelect || !name || !contact || !email) {
-    alert("⚠️ Please fill in all required fields before confirming your booking.");
+  // Simple validation
+  if (!name.value.trim() || !contact.value.trim() || !email.value.trim() || !location.value || !packageSelect.value) {
+    alert("⚠️ Please fill in all required fields before submitting.");
     return;
   }
 
+  // If all good → show confirmation popup
   showConfirmationPopup();
-}*/
+}
 
-//Popup code
 function showConfirmationPopup() {
   const popup = document.createElement("div");
   popup.className = "confirmation-popup";
@@ -164,49 +166,35 @@ function showConfirmationPopup() {
     <div class="popup-content">
       <h4>✅ Booking Confirmed</h4>
       <p>Your details have been submitted.<br>Our team will get in touch with you shortly.</p>
-      <button class="btn" style="background:#158484;color:#fff;border:none;border-radius:30px;padding:5px 20px;font-size:13px;">Close</button>
+      <button id="closePopupBtn" class="btn" style="background:#158484;color:#fff;border:none;border-radius:30px;padding:5px 20px;font-size:13px;">Close</button>
     </div>
   `;
-  popup.querySelector("button").addEventListener("click", () => {
-    document.body.classList.remove("modal-open");
-    popup.remove();
-  });
+
   document.body.appendChild(popup);
   document.body.classList.add("modal-open");
+
+  // Close button handler
+  document.getElementById("closePopupBtn").addEventListener("click", () => {
+    document.body.classList.remove("modal-open");
+    popup.remove();
+    resetBookingForm(); // 🔹 reset after closing popup
+  });
 }
 
+function resetBookingForm() {
+  // Reset form inputs
+  document.getElementById("bookingForm").reset();
 
+  // Reset counters
+  document.getElementById("adultCount").textContent = "1";
+  document.getElementById("childCount").textContent = "1";
 
-/*Booking quote calculator
-function changeCount(id, delta) {
-  const span = document.getElementById(id);
-  let value = parseInt(span.textContent);
-  value = Math.max(0, value + delta);
-  span.textContent = value;
-  updateSummary();
+  // Reset summary values
+  document.getElementById("packageName").textContent = "—";
+  document.getElementById("packagePrice").textContent = "0";
+  document.getElementById("adultTotal").textContent = "0";
+  document.getElementById("childTotal").textContent = "0";
+  document.getElementById("subTotal").textContent = "0";
+  document.getElementById("vat").textContent = "0";
+  document.getElementById("total").textContent = "0";
 }
-
-function updateSummary() {
-  const adultCount = parseInt(document.getElementById('adultCount').textContent);
-  const childCount = parseInt(document.getElementById('childCount').textContent);
-  
-  const packageSelect = document.getElementById('package');
-  const selectedOption = packageSelect.options[packageSelect.selectedIndex];
-  const packagePrice = parseFloat(selectedOption.getAttribute('data-cost')) || 0;
-
-  const adultTotal = adultCount * packagePrice;
-  const childTotal = childCount * (packagePrice * 0.7);
-  const subTotal = adultTotal + childTotal;
-  const vat = subTotal * 0.15;
-  const total = subTotal + vat;
-
-  document.getElementById('packagePrice').textContent = `£${packagePrice.toFixed(2)}`;
-  document.getElementById('adultTotal').textContent = `£${adultTotal.toFixed(2)}`;
-  document.getElementById('childTotal').textContent = `£${childTotal.toFixed(2)}`;
-  document.getElementById('subTotal').textContent = `£${subTotal.toFixed(2)}`;
-  document.getElementById('vat').textContent = `£${vat.toFixed(2)}`;
-  document.getElementById('total').textContent = `£${total.toFixed(2)}`;
-}
-
-// ✅ Ensure summary loads when page is opened with ?package=XYZ
-window.onload = updateSummary;*/
