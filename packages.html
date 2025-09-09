@@ -76,7 +76,7 @@
                 <li>Complimentary nature bike tour</li>
                 <li>Eco-awareness welcome kit</li>
               </ul>
-              <button>Book Now</button>
+              <button type="button" onclick="sendpackage('Diamond Package')">Book Now</button>
             </div>
         
             <div class="card large-card">
@@ -93,7 +93,7 @@
                 <li>Sustainable ground transport</li>
                 <li>Stargazing & forest meditation</li>
               </ul>
-              <button>Book Now</button>
+              <button type="button" onclick="sendpackage('Silver Package')">Book Now</button>
             </div>
         
             <div class="card right-card">
@@ -109,7 +109,7 @@
                 <li>Private yoga and wellness sessions</li>
                 <li>Campfire & cultural night</li>
               </ul>
-              <button>Book Now</button>
+              <button type="button" onclick="sendpackage('Gold Package')">Book Now</button>
             </div>
           </div>
     </section>
@@ -210,5 +210,12 @@
 
 <!-------My Script-------->
 <script src="script.js"></script>
+<script>
+  function sendpackage(package) {
+    localStorage.setItem("selected_package", package);
+
+    window.location.href = "booking.html"; 
+  }
+</script>
 </body>
 </html>

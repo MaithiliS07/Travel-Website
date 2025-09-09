@@ -319,36 +319,52 @@ function updateSummary() {
     document.getElementById('total').textContent = `£${total.toFixed(2)}`;
 }
 
-//date code
-window.addEventListener("DOMContentLoaded", () => {
+//date code - new code
+document.addEventListener("DOMContentLoaded", () => {
+  // enforce min date
   const today = new Date().toISOString().split("T")[0];
   document.getElementById("travel-date").setAttribute("min", today);
+
+  // ---- read values saved from other pages ----
+  const exploreLocation = localStorage.getItem('explore_location');
+  const formLocation    = localStorage.getItem('booking_location');
+  const dateStored      = localStorage.getItem('booking_date');
+  const savedPackage    = localStorage.getItem('selected_package');
+
+  // location (prefer Explore)
+  if (exploreLocation) {
+    document.getElementById('location').value = exploreLocation;
+    localStorage.removeItem('explore_location');
+  } else if (formLocation) {
+    document.getElementById('location').value = formLocation;
+    localStorage.removeItem('booking_location');
+  }
+
+  if (dateStored) {
+    document.getElementById('travel-date').value = dateStored;
+    localStorage.removeItem('booking_date');
+  }
+
+  // ---- set package dropdown by visible text ----
+  if (savedPackage) {
+    const select = document.getElementById('package');
+    const opts = Array.from(select.options);
+
+    // find option whose text matches (case-insensitive, allows “Diamond” vs “Diamond Package”)
+    const matchIndex = opts.findIndex(o =>
+      o.text.toLowerCase().includes(savedPackage.toLowerCase())
+    );
+
+    if (matchIndex > -1) {
+      select.selectedIndex = matchIndex;
+      updateSummary(); // refresh the summary immediately
+    }
+
+    localStorage.removeItem('selected_package'); // clean up
+  }
 });
 
-    //Previous Code
-    window.onload = function () {
-    const exploreLocation = localStorage.getItem('explore_location');
-    const formLocation = localStorage.getItem('booking_location');
-    const date = localStorage.getItem('booking_date');
-
-    // Prefer location from Explore page if set
-    if (exploreLocation) {
-      document.getElementById('location').value = exploreLocation;
-      localStorage.removeItem('explore_location');
-    } else if (formLocation) {
-      document.getElementById('location').value = formLocation;
-      localStorage.removeItem('booking_location');
-    }
-
-    if (date) {
-      document.getElementById('travel-date').value = date;
-      localStorage.removeItem('booking_date');
-    }
-  };
 </script>
-
-<script></script>
-
 
 </body>
 </html>
