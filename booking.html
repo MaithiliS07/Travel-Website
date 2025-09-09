@@ -319,6 +319,11 @@ function updateSummary() {
     document.getElementById('total').textContent = `£${total.toFixed(2)}`;
 }
 
+//date code
+window.addEventListener("DOMContentLoaded", () => {
+  const today = new Date().toISOString().split("T")[0];
+  document.getElementById("travel-date").setAttribute("min", today);
+});
 
     //Previous Code
     window.onload = function () {
