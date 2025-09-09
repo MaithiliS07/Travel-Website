@@ -140,7 +140,7 @@ function decreaseCount(id) {
 
 
 //Booking submit section
-function handleBooking() {
+/*function handleBooking() {
   const location = document.getElementById('location').value.trim();
   const travelDate = document.getElementById('travel-date').value.trim();
   const packageSelect = document.getElementById('package').value.trim();
@@ -154,8 +154,9 @@ function handleBooking() {
   }
 
   showConfirmationPopup();
-}
+}*/
 
+//Popup code
 function showConfirmationPopup() {
   const popup = document.createElement("div");
   popup.className = "confirmation-popup";
@@ -163,10 +164,15 @@ function showConfirmationPopup() {
     <div class="popup-content">
       <h4>✅ Booking Confirmed</h4>
       <p>Your details have been submitted.<br>Our team will get in touch with you shortly.</p>
-      <button onclick="this.parentElement.parentElement.remove()" class="btn" style="background: #158484; color: white; border:none; border-radius: 30px; padding: 5px 20px; font-size: 13px;">Close</button>
+      <button class="btn" style="background:#158484;color:#fff;border:none;border-radius:30px;padding:5px 20px;font-size:13px;">Close</button>
     </div>
   `;
+  popup.querySelector("button").addEventListener("click", () => {
+    document.body.classList.remove("modal-open");
+    popup.remove();
+  });
   document.body.appendChild(popup);
+  document.body.classList.add("modal-open");
 }
 
 
