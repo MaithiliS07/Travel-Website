@@ -392,7 +392,7 @@
   }
 
   .contact .container .row .left-col{
-    background-color: #1eaa97;
+    background-color: #158484;
     color: white;
     font-size: 18px;
     padding-top: 30px;
@@ -402,6 +402,7 @@
     list-style: none;
     margin: 40px;
     font-size: 15px;
+    font-family: 'Poppins', sans-serif;
   }
 
   .contact .container .row .left-col ul li i{
@@ -452,7 +453,7 @@
   }
 
   .right-col form button{
-    background-color: #1eaa97;
+    background-color: #158484;
     color: white;
     padding: 5px 40px;
     margin: 20px 40px;
