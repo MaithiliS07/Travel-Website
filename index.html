@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Website</title>
+
+    <!------CSS File------>
+    <link rel="stylesheet" href="style.css">
+
+    <!-------BootStrap CSS CDN-------->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+    
+    <!-------Flaticon CDN------->
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-regular-rounded/css/uicons-regular-rounded.css'>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-solid-rounded/css/uicons-solid-rounded.css'>
+    
+</head>
+<body>
+    <div class="header">
+      <!-------Navigation Bar------->
+        <nav class="navbar navbar-expand-lg" id="mainNavbar"> <!------New ID------>
+            <div class="container-fluid">
+              <a class="navbar-brand" href="index.html"><img src="Images/Logo2.png" alt="Company Logo" width="90" height="35"></a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="explore.html">Explore</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="packages.html">Packages</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="booking.html">Booking</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="contact.html">Contact Us</a>
+                  </li>
+                </ul>
+                <div class="search-section">
+                    <input type="text" placeholder="Search" class="search" id="globalSearch" onkeyup="scrollToMatch()">
+                    <i class="fi fi-rr-search" id="search-icon"></i>
+                </div>
+              </div>
+            </div>
+          </nav>
+
+          <!---------Homepage Content--------->
+          <div class="headings">
+            <h3 class="head1">Eco-Friendly</h3>
+            <h1 class="head2">TOURISM</h1>
+            <p class="home-content">Explore the world with intention and care. <br>Traco creates sustainable journeys that support the planet and its people.</p>
+            <a href="booking.html"><button type="button" class="book-btn">Book Now</button></a>
+          </div>
+    </div>
+
+    <!--------Booking Form--------->
+    <div class="booking-container">
+      <div class="booking-item">
+          <img src="Images/placeholder.png" alt="Location Icon" class="icon">
+          <div>
+              <div class="booking-label">Location</div>
+              <select id="location" class="booking-input">
+                <option value="">Select Location</option>
+                <option value="Indonesia">Indonesia</option>
+                <option value="France">France</option>
+                <option value="India">India</option>
+                <option value="China">China</option>
+                <option value="Scotland">Scotland</option>
+                <option value="Switzerland">Switzerland</option>
+                <option value="Italy">Italy</option>
+                <option value="Costa Rica">Costa Rica</option>
+              </select>
+          </div>
+      </div>
+      
+      <div class="separator"></div>
+      
+      <div class="booking-item">
+          <img src="Images/calendar.png" alt="Date Icon" class="icon">
+          <div>
+              <div class="booking-label">Date</div>
+              <input type="date" name="date" placeholder="Select Date" class="booking-input">
+          </div>
+      </div>
+      
+      <div class="separator"></div>
+      
+      <div class="booking-item">
+          <img src="Images/user.png" alt="Passengers Icon" class="icon">
+          <div>
+              <div class="booking-label">Passengers</div>
+              <input type="number" name="passengers" placeholder="Total Passengers" class="booking-input">
+          </div>
+      </div>
+  
+      <button class="go-button" onclick="submitBooking()">GO</button>
+    </div>
+
+    <!-----------Explore Section---------->
+    <div class="explore-section fade-in-section delay">
+      <div class="text-content">
+        <h1>Find Your Next Destination</h1>
+        <p>Looking for your next adventure? Whether it’s a peaceful beach, 
+          a busy city, or a quiet mountain town — we’ve got the perfect place for you.</p>
+        <a href="explore.html"><button>Explore</button></a>
+      </div>
+    
+      <div class="image-stack">
+        <div class="image-card back-layer"></div>
+        <div class="image-card mid-layer left"></div>
+        <div class="image-card main-card"></div>
+        <div class="image-card mid-layer right"></div>
+        <div class="image-card back-layer"></div>
+      </div>
+    </div>
+
+    <!------------About Us Section------------>
+    <section class="about-section fade-in-section delay">
+      <div class="about-images">
+        <img src="Images/about1.jpg" alt="Smiling traveler with map" class="about-img img1">
+        <img src="Images/about2.jpg" alt="Hand holding globe" class="about-img img2">
+        <img src="Images/about3.jpg" alt="People walking in forest" class="about-img img3">
+      </div>
+  
+      <div class="about-content">
+        <h2>About Us</h2>
+        <p>
+          At Traco, we are dedicated to offering eco-friendly travel experiences that prioritize sustainability.
+          Our mission is to help travelers explore the world responsibly while minimizing their environmental footprint.
+        </p>
+
+
+
+        <button class="learn-more" onclick="openModal()">Learn More</button>
+
+  
+        <div class="stats">
+          <div><strong>10+</strong><br><span class="stat-name">Partnerships</span></div>
+          <div class="line"></div>
+          <div><strong>10+</strong><br><span class="stat-name">Destinations</span></div>
+          <div class="line"></div>
+          <div><strong>500+</strong><br><span class="stat-name">Trips</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-------------Testimonials Section------------->
+    <section class="testimonial">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm">
+            <div class="section-head">
+              <h1>Traveler's Stories</h1>
+              <p>Real Journeys, Real Impact! <br>
+                Every trip leaves a mark, and our travelers have plenty to share. Read their experiences and see why they trust us to plan 
+                their perfect journeys.</p>
+            </div>
+          </div>
+  
+          <div class="col-sm">
+            <div class="review-bg">
+              <div id="reviewCardCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+    
+                  <!-- Slide 1 -->
+                  <div class="carousel-item active">
+                    <div class="review-card">
+                      <div class="upper-quote"><img src="Images/quote.png" alt="Quote" width="50" height="50"></div>
+                      <div class="lower-quote"><img src="Images/quote.png" alt="Quote" width="50" height="50"></div>
+                      <div class="profile">
+                        <img src="Images/customer.jpg" alt="Profile">
+                        <h4>Noah Thompson</h4>
+                        <div class="ratings">
+                          <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9734;</span>
+                          <span class="rate">4.0</span>
+                        </div>
+                        <div class="review-body">
+                          <p>“Traco made my travel experience unforgettable! Their eco-friendly approach helped me explore breathtaking places responsibly while keeping comfort and adventure intact!”</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+    
+                  <!-- Slide 2 -->
+                  <div class="carousel-item">
+                    <div class="review-card">
+                      <div class="upper-quote"><img src="Images/quote.png" alt="Quote" width="50" height="50"></div>
+                      <div class="lower-quote"><img src="Images/quote.png" alt="Quote" width="50" height="50"></div>
+                      <div class="profile">
+                        <img src="Images/customer2.jpg" alt="Profile">
+                        <h4>Liam Carter</h4>
+                        <div class="ratings">
+                          <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+                          <span class="rate">5.0</span>
+                        </div>
+                        <div class="review-body">
+                          <p>“Best decision ever! From booking to travel, everything was smooth and thoughtful. Traco’s sustainable focus makes it my go-to travel platform.”</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+    
+                  <!-- Slide 3 -->
+                  <div class="carousel-item">
+                    <div class="review-card">
+                      <div class="upper-quote"><img src="Images/quote.png" alt="Quote" width="50" height="50"></div>
+                      <div class="lower-quote"><img src="Images/quote.png" alt="Quote" width="50" height="50"></div>
+                      <div class="profile">
+                        <img src="Images/customer3.jpg" alt="Profile">
+                        <h4>Ava Mitchell</h4>
+                        <div class="ratings">
+                          <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+                          <span class="rate">5.0</span>
+                        </div>
+                        <div class="review-body">
+                          <p>“The itinerary was perfectly planned and the support team was super responsive. 
+                            It felt great knowing my travels were helping reduce environmental impact!”</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+    
+                </div>
+    
+                <!-- Controls -->
+                <button class="carousel-control-prev" type="button" data-bs-target="#reviewCardCarousel" data-bs-slide="prev" style="margin-top: -100px; color: black;">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#reviewCardCarousel" data-bs-slide="next" style="margin-top: -100px;">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!--------Footer Section---------->
+    <footer class="fade-in-section delay">
+      <div class="container1">
+        <div class="row">
+  
+          <!------Column 1-------> 
+          <div class="col-sm">
+            <img src="Images/Logo2.png" alt="Company Logo" class="footer-logo">
+            <div class="updates">
+              <label for="updates">Get Latest Updates</label>
+              <input type="email" placeholder="Enter your email">
+              <i class="fi fi-sr-envelope"></i>
+              <button type="button">Subscribe</button>
+            </div>
+          </div>
+  
+          <!-------Column 2-------->
+          <div class="col-sm">
+            <div class="links">
+              <h5>Quick Links</h5>
+              <div class="line"></div>
+              <ul>
+                <li>Home</li>
+                <li>Explore</li>
+                <li>Packages</li>
+                <li>Booking</li>
+                <li>Contact Us</li>
+              </ul>
+            </div>
+          </div>
+  
+          <!------Column 3-------->
+          <div class="col-sm">
+            <div class="links">
+              <h5>Know More</h5>
+              <div class="line"></div>
+              <ul>
+                <li>Privacy Policy</li>
+                <li>Terms & Conditions</li>
+                <li>Cookie Policy</li>
+                <li>Accessibility</li>
+              </ul>
+            </div>
+          </div>
+  
+          <!------Column 4-------->
+          <div class="col-sm">
+            <div class="links">
+              <h5>Get in Touch</h5>
+              <div class="line"></div>
+              <ul>
+                <li><i class="fi fi-sr-phone-call"></i>+44 1234567890</li>
+                <li><i class="fi fi-sr-envelope"></i>traco.customercare@gmail.com</li>
+              </ul>
+              <div class="social-links">
+                <img src="Images/facebook.png" alt="Facebook">
+                <img src="Images/instagram.png" alt="Instagram">
+                <img src="Images/twitter.png" alt="Twitter">
+              </div>
+            </div>
+          </div>
+        </div>
+  
+        <!-- See More Button (Mobile View) -->
+        <button class="see-more-btn" onclick="toggleColumns()">See More</button>
+      </div>
+  
+      <div class="disclaimer">
+        <p>Disclaimer: Note that this is a fictitious website that was developed by a student as part of a programming assignment. 
+          None of the content on this page is meant to be genuine nor should it be taken as such. </p>
+        <h6>© 2025 Traco. All rights reserved.</h6>
+      </div>
+    </footer>
+
+
+
+
+     <!-- About Us Modal -->
+    <div id="customModal" class="custom-modal">
+      <div class="custom-modal-content">
+        <span class="custom-close" onclick="closeModal()">&times;</span>
+        <h3>About Traco</h3>
+        <p>At Traco, we believe travel should be meaningful, affordable, and sustainable. We’re here to help you 
+          explore the world in a way that respects nature, supports local communities, and fits your budget. 
+          From eco-friendly stays to offbeat destinations, every experience we share is thoughtfully chosen to 
+          leave a positive impact — on both the planet and your journey. <br><br>
+          <span style="margin-top: 20px;">Whether you're a solo backpacker, a budget-conscious family, or an adventure seeker with a green heart, 
+            we make it easy to travel smarter. With simple tools, trusted tips, and a growing community of mindful 
+            travelers, we’re building a world where travel isn’t just about where you go — it’s about how you get 
+            there.</span>          
+          </p>
+
+          <div class="traco-info">
+            <div class="vision">
+              <h4>Our Vision</h4>
+              <p>To create a world where travel is accessible, affordable, and environmentally responsible — 
+                inspiring every traveler to explore with care and purpose.</p>
+            </div>
+
+            <div class="vision">
+              <h4>Our Mission</h4>
+              <p>To connect people with sustainable destinations and budget-friendly travel experiences that 
+                support local communities, protect natural resources, and promote meaningful journeys.</p>
+            </div>
+          </div>
+      </div>
+    </div>
+    
+    <!-------BootStrap JS CDN-------->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
+
+    <!-------My Script-------->
+    <script src="script.js"></script>
+
+
+
+    <!------------Booking Submission--------------->
+    <script>
+        function submitBooking() {
+          const location = document.getElementById('location').value;
+          const date = document.querySelector('input[name="date"]').value;
+
+          // Local Storage for input storage
+          localStorage.setItem('booking_location', location);
+          localStorage.setItem('booking_date', date);
+
+          window.location.href = 'booking.html'; 
+        }
+    </script>
+
+  </body>
+</html>

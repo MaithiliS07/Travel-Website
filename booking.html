@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Website</title>
+
+    <!------CSS File------>
+    <link rel="stylesheet" href="style2.css">
+
+    <!-------BootStrap CSS CDN-------->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+    
+    <!-------Flaticon CDN------->
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-regular-rounded/css/uicons-regular-rounded.css'>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-solid-rounded/css/uicons-solid-rounded.css'>
+    
+</head>
+<body>
+    <div class="header">
+      <!-------Navigation Bar------->
+        <nav class="navbar navbar-expand-lg" id="mainNavbar"> <!------New ID------>
+            <div class="container-fluid">
+              <a class="navbar-brand" href="#"><img src="Images/Logo2.png" alt="Company Logo" width="90" height="35"></a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                  <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="index.html">Home</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="explore.html">Explore</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="packages.html">Packages</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link active" href="#">Booking</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="contact.html">Contact Us</a>
+                  </li>
+                </ul>
+                <div class="search-section">
+                    <input type="text" placeholder="Search" class="search">
+                    <i class="fi fi-rr-search" id="search-icon"></i>
+                </div>
+              </div>
+            </div>
+        </nav>
+    </div>
+
+
+    <!-----------Booking Section----------->
+    <section class="booking">
+        <div class="heading-section">
+            <h1>Book Your Journey With Us</h1>
+            <h5>Skip the stress. Pack your bags. We’ll handle the rest.</h5>
+            <p>Booking your dream trip has never been easier. Choose from eco-friendly stays and affordable 
+            getaways that care for both your wallet and the planet. Let your next adventure begin, stress-free and
+            sustainably.</p>
+        </div>
+        
+        <div class="container">
+          <div class="row">
+
+            <!--------------Booking Form------------>
+            <div class="col-md-8 booking-form">
+              <form action="" id="bookingForm">
+
+                <!---------First Row---------->
+                <h3>Travel Details</h3>
+                <div class="travel-details">
+                  <!-- Location Dropdown -->
+                  <div class="form-group">
+                    <label for="location">Location</label>
+                    <select id="location" class="form-control">
+                      <option value="">Select Location</option>
+                      <option value="Indonesia">Indonesia</option>
+                      <option value="France">France</option>
+                      <option value="India">India</option>
+                      <option value="China">China</option>
+                      <option value="Scotland">Scotland</option>
+                      <option value="Switzerland">Switzerland</option>
+                      <option value="Italy">Italy</option>
+                      <option value="Costa Rica">Costa Rica</option>
+                    </select>
+                  </div>
+
+                  <!-- Package Dropdown -->
+                  <div class="form-group">
+                    <label for="package">Package</label>
+                    <select id="package" class="form-control">
+                      <option value="">Select Package</option>
+                      <option value="">Diamond Package</option>
+                      <option value="">Silver Package</option>
+                      <option value="">Gold Package</option>
+                    </select>
+                  </div>
+
+                  <!-- Date Picker -->
+                  <div class="form-group">
+                    <label for="travel-date">Date</label>
+                    <input type="date" id="travel-date" class="form-control">
+                  </div> 
+                </div>
+
+                <!-------------Passenger Details----------->
+                <h3>Passenger Details</h3>
+                <div class="passenger-details">
+                  <div class="passenger-count">
+                    <div class="row-align">
+                      <label for="adults">Adult(s)</label>
+                      <div class="counter">
+                        <button type="button" onclick="decreaseCount('adultCount')">-</button>
+                        <span id="adultCount">1</span>
+                        <button type="button" onclick="increaseCount('adultCount')">+</button>
+                      </div>
+                    </div>
+                  </div>
+                
+                  <div class="passenger-count">
+                    <div class="row-align">
+                      <label for="children">Children</label>
+                      <div class="counter">
+                        <button type="button" onclick="decreaseCount('childCount')">-</button>
+                        <span id="childCount">1</span>
+                        <button type="button" onclick="increaseCount('childCount')">+</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-------Contact Details--------->
+                <h3>Contact Details</h3>
+                <div class="contact-details">
+                  <div class="input-group">
+                    <label for="name">Name</label>
+                    <input type="text" name="name" placeholder="Enter your name">
+                  </div>
+                
+                  <div class="input-group">
+                    <label for="contact">Contact</label>
+                    <input type="text" name="contact" placeholder="Enter your contact">
+                  </div>
+                </div>
+                
+                <div class="contact-details">
+                  <div class="input-group">
+                    <label for="email">Email</label>
+                    <input type="email" name="email" placeholder="Enter your email">
+                  </div>
+                
+                  <div class="input-group">
+                    <label for="requirements">Special Requirements</label>
+                    <input type="text" name="requirements" placeholder="Enter any requirements">
+                  </div>
+                </div>
+              </form>
+            </div>
+
+            <!---------------Booking Summary---------->
+            <div class="col-md-4 booking-summary">
+              <div class="p-4 bg-white" style="border-radius: 20px; box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;">
+                <h5 class="mb-3">Summary</h5>
+                <div class="d-flex justify-content-between">
+                  <span>Package price</span><span>0</span>
+                </div>
+                <div class="d-flex justify-content-between">
+                  <span>Total Adults </span><span>0</span>
+                </div>
+                <div class="d-flex justify-content-between">
+                  <span>Total Children </span><span>0</span>
+                </div>
+                <hr />
+                <div class="d-flex justify-content-between">
+                  <span>Sub Total</span><span>0</span>
+                </div>
+                <div class="d-flex justify-content-between">
+                  <span>VAT (15%)</span><span>0</span>
+                </div>
+                <hr />
+                <div class="d-flex justify-content-between fw-bold">
+                  <span>Total</span><span>0</span>
+                </div>
+                <button class="btn btn-info w-100 mt-4 text-white" onclick="handleBooking()" style="background: #158484; border: none; border-radius: 30px;">Submit</button>
+              </div>
+            </div>
+            </div>
+          </div>
+        </div>
+
+    </section>
+
+
+     <!--------Footer Section---------->
+     <footer class="fade-in-section delay">
+      <div class="container1">
+        <div class="row">
+  
+          <!------Column 1-------> 
+          <div class="col-sm">
+            <img src="Images/Logo2.png" alt="Company Logo" class="footer-logo">
+            <div class="updates">
+              <label for="updates">Get Latest Updates</label>
+              <input type="email" placeholder="Enter your email">
+              <i class="fi fi-sr-envelope"></i>
+              <button type="button">Subscribe</button>
+            </div>
+          </div>
+  
+          <!-------Column 2-------->
+          <div class="col-sm">
+            <div class="links">
+              <h5>Quick Links</h5>
+              <div class="line"></div>
+              <ul>
+                <li>Home</li>
+                <li>Explore</li>
+                <li>Packages</li>
+                <li>Booking</li>
+                <li>Contact Us</li>
+              </ul>
+            </div>
+          </div>
+  
+          <!------Column 3-------->
+          <div class="col-sm">
+            <div class="links">
+              <h5>Know More</h5>
+              <div class="line"></div>
+              <ul>
+                <li>Privacy Policy</li>
+                <li>Terms & Conditions</li>
+                <li>Cookie Policy</li>
+                <li>Accessibility</li>
+              </ul>
+            </div>
+          </div>
+  
+          <!------Column 4-------->
+          <div class="col-sm">
+            <div class="links">
+              <h5>Get in Touch</h5>
+              <div class="line"></div>
+              <ul>
+                <li><i class="fi fi-sr-phone-call"></i>+44 1234567890</li>
+                <li><i class="fi fi-sr-envelope"></i>traco.customercare@gmail.com</li>
+              </ul>
+              <div class="social-links">
+                <img src="Images/facebook.png" alt="Facebook">
+                <img src="Images/instagram.png" alt="Instagram">
+                <img src="Images/twitter.png" alt="Twitter">
+              </div>
+            </div>
+          </div>
+        </div>
+  
+        <!-- See More Button (Mobile View) -->
+        <button class="see-more-btn" onclick="toggleColumns()">See More</button>
+      </div>
+  
+      <div class="disclaimer">
+        <p>Disclaimer: Note that this is a fictitious website that was developed by a student as part of a programming assignment. 
+          None of the content on this page is meant to be genuine nor should it be taken as such. </p>
+        <h6>© 2025 Traco. All rights reserved.</h6>
+      </div>
+    </footer>
+
+
+<!-------BootStrap JS CDN-------->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
+
+<!-------My Script-------->
+<script src="script.js"></script>
+
+
+
+<!------------New Code-------------->
+  <script>
+    window.onload = function () {
+    const exploreLocation = localStorage.getItem('explore_location');
+    const formLocation = localStorage.getItem('booking_location');
+    const date = localStorage.getItem('booking_date');
+
+    // Prefer location from Explore page if set
+    if (exploreLocation) {
+      document.getElementById('location').value = exploreLocation;
+      localStorage.removeItem('explore_location');
+    } else if (formLocation) {
+      document.getElementById('location').value = formLocation;
+      localStorage.removeItem('booking_location');
+    }
+
+    if (date) {
+      document.getElementById('travel-date').value = date;
+      localStorage.removeItem('booking_date');
+    }
+  };
+</script>
+
+<script></script>
+
+
+</body>
+</html>

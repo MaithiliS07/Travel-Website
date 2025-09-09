@@ -1,0 +1,1226 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Allura&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  scroll-behavior: smooth;
+}
+
+/*----------Navigation Bar Code-----------*/
+
+.navbar{
+    position: fixed !important;  
+    top: 0;                 
+    left: 0;
+    right: 0;
+    z-index: 1000 ;         
+    padding: 10px 20px !important;
+    top: 10px;
+    margin: 0 40px;
+    box-sizing: border-box;
+    border-radius: 50px;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+    transition: all 0.4s ease;
+    background: rgb(255, 255, 255);
+  }
+  
+  .nav-link{
+    color: rgb(0, 0, 0) !important;
+    margin-left: 40px;
+    text-decoration: none;
+    transition: 0.4s;
+    position: relative;
+    transition: color 0.4s ease;
+  }
+  
+  .active{
+    color: #2ddede !important;
+    font-weight: 500 !important;
+  }
+  
+  .nav-link::before {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 3px;
+    background-color: #158484;
+    bottom: 0;
+    left: 0;
+    transition: width 0.4s;
+  }
+  
+  .nav-link:hover::before {
+    width: 100%;
+  }
+  
+  .navbar-toggler{
+    font-size: 10px !important;
+    color: rgb(0, 0, 0) !important;
+  }
+  
+  .search-section{
+    position: relative;
+    display: inline-block;
+  }
+  
+  .search{
+    width: 100%;
+    min-width: 200px;
+    padding: 5px 20px 5px 20px;
+    box-sizing: border-box;
+    border-radius: 50px;
+    outline: none;
+    border: 0.5px solid rgba(0, 0, 0, 0.447);
+    font-size: 15px;
+    background-color: transparent;
+    color: rgb(0, 0, 0);
+  }
+  
+  #search-icon{
+    position: absolute;
+    right: 10px; 
+    top: 55%;
+    right: 8%;
+    color: rgb(0, 0, 0);
+    transform: translateY(-50%); 
+    pointer-events: none; 
+  }
+  
+
+
+  /*---------Explore body-------*/
+  .explore{
+    margin: 100px 150px 50px 150px;
+  }
+
+  .explore .heading-section h1{
+    font-size: 60px;
+    font-weight: bold;
+    text-align: center;
+  }
+  .explore .heading-section h5{
+    font-size: 20px;
+    text-align: center;
+  }
+
+  .explore-card img{
+    width: 100%;
+    max-width: 250px;
+    height: 300px;
+    border-radius: 50px;
+    box-shadow: inset 0 0.5px hsl(0, 0%, 100%), inset 0 -1px 2px 0 hsl(0, 0%, 0%),
+    0px 4px 10px -4px hsla(0 0% 0% / calc(1 - var(--active, 0))),
+    0 0 0 calc(var(--active, 0) * 0.375rem) hsl(260 97% 50% / 0.75);
+  }
+
+  .explore .row{
+    margin-top: -10px;
+  }
+
+  .explore .heading-section p{
+    font-size: 15px;
+    margin: 20px 100px 50px 100px;
+    text-align: center;
+  }
+
+  .explore .details
+  {
+    width: 230px;
+    height: auto;
+    backdrop-filter: blur(15px);
+    padding: 8px 20px;
+    position: relative;
+    top: -75px;
+    left: 10px;
+    color: white;
+    border-radius: 40px;
+  }
+
+  .explore .details .book-btn{
+    float: right;
+    padding: 15px 10px;
+    position: relative;
+    top: -25px;
+    left: 10px;
+    border-radius: 50px;
+    font-size: 12px;
+    border: none;
+    background: #158484;
+    color: white;
+  }
+
+  .details .book-btn:hover{
+    border: none;
+    background: #1ccbb4;
+  }
+
+
+
+
+  /*------------Packages Page-------------*/
+  .packages{
+    margin: 100px 0;
+    padding: 0;
+  }
+
+  .packages .heading-section h1{
+    font-size: 60px;
+    font-weight: bold;
+    text-align: center;
+  }
+
+  .packages .heading-section h5{
+    font-size: 20px;
+    text-align: center;
+  }
+
+  .packages .heading-section p{
+    font-size: 15px;
+    margin: 10px 100px 50px 100px;
+    text-align: center;
+  }
+
+  .pricing-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 20px;
+    position: relative;
+    flex-wrap: wrap;
+  }
+  
+  .pricing-container .card h2 {
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 25px;
+    font-weight: 600;
+  }
+  
+  .packages .pricing-container .card .price {
+    font-size: 40px !important;
+    font-weight: bold;
+    margin: 0;
+  }
+  
+  .pricing-container .duration {
+    font-weight: bold;
+    color: #666;
+  }
+  
+  .pricing-container .description {
+    color: #333;
+    font-size: 13px;
+    font-weight: 600;
+  }
+  
+  .pricing-container .left-card ul, .pricing-container .large-card ul {
+    list-style-type: "✔️ ";
+    padding-left: 0;
+    text-align: left;
+    margin: 5px 20px;
+  }
+  
+  .pricing-container .right-card ul{
+    list-style-type: "✔️ ";
+    padding-left: 0;
+    text-align: left;
+    margin: 10px 10px 10px 35px;
+  }
+  
+  .pricing-container ul li {
+    margin: 5px 0;
+    font-size: 12px;
+  }
+  
+  .pricing-container button {
+    background-color: #158484;
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    width: 100%;
+    max-width: 280px;
+    border-radius: 25px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 15px;
+  }
+  
+  .pricing-container button:hover {
+    background-color: #1ccbb4;
+  }
+  
+  .pricing-container .large-card {
+      transform: scale(1.1);
+      z-index: 2;
+      background-color: white;
+      border-radius: 40px;
+      box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;    
+      padding: 25px 35px;
+      width: 350px;
+      text-align: center;
+      transition: transform 0.3s ease;
+      position: relative;
+  }
+  
+  .pricing-container .left-card {
+      background-color: white;
+      border-radius: 40px 0 0 40px;
+      box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+      padding: 25px;
+      width: 350px;
+      text-align: center;
+      transition: transform 0.3s ease;
+      position: relative;
+      z-index: 1;
+      transform: translateX(30px) scale(0.97);
+  }
+  
+  .packages .pricing-container .right-card {
+      background-color: white;
+      border-radius: 0 40px 40px 0;
+      box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+      padding: 20px 30px 25px 50px !important;
+      width: 350px;
+      text-align: center;
+      transition: transform 0.3s ease;
+      position: relative;
+      z-index: 1;
+      transform: translateX(-30px) scale(0.97);
+  }
+
+
+
+
+
+  /*--------------Packages Deals Section--------------*/
+  .banner-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 960px;
+    height: 350px;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+  }
+  
+  /* Blue base section */
+  .blue-background {
+    background: #158484;
+    width: 90%;
+    height: auto;
+    border-radius: 0 30px 30px 0;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin: auto;
+  }
+  
+  .image-box img {
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: cover;
+    margin: 10px 80px;
+  }
+  
+  /* Yellow overlay panel */
+  .yellow-panel {
+    position: absolute;
+    top: 50px;
+    left: -30px;
+    width: 50%;
+    height: 250px;
+    background: #effe1b;
+    clip-path: polygon(0 0, 100% 0, 85% 100%, 0 100%);
+    padding: 50px 40px;
+    display: flex;
+    align-items: center;
+    z-index: 2;
+  }
+  
+  .content h2 {
+    font-size: 35px;
+    font-weight: bolder;
+    color: #179ac4;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  
+  .content .details {
+    font-size: 18px;
+    color: #179ac4;
+    margin-bottom: 25px;
+  }
+  
+  .content .sub{
+      font-size: 15px;
+      font-style: italic;
+      color: #179ac4;
+  }
+
+
+
+
+  /*-------------Contact Us Page------------*/
+  .contact {
+    margin: 100px 150px;
+    align-items: center;
+  }
+
+  .contact .heading-section h1{
+    font-size: 60px;
+    font-weight: bold;
+    text-align: center;
+  }
+  
+  .contact .heading-section p{
+    text-align: center;
+    font-size: 15px;
+  }
+
+  .contact .container{
+    width: 100%;
+    max-width: 80%;
+    margin: 30px auto;
+    height: auto;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+  }
+
+  .contact .container .row .left-col{
+    background-color: #1eaa97;
+    color: white;
+    font-size: 18px;
+    padding-top: 30px;
+  }
+
+  .contact .container .row .left-col ul li{
+    list-style: none;
+    margin: 40px;
+    font-size: 15px;
+  }
+
+  .contact .container .row .left-col ul li i{
+    font-size: 20px;
+    color: white;
+    margin-right: 20px;
+    top: 5px;
+    position: relative;
+  }
+
+  .right-col{
+    padding: 30px;
+  }
+
+  .right-col h4{
+    font-size: 30px;
+    font-weight: 700;
+    margin-left: 40px;
+    margin-bottom: 20px;
+  }
+
+  .right-col form input{
+    width: 100%;
+    max-width: 65%;
+    margin: 10px 40px;
+    padding: 8px 20px;
+    font-size: 15px;
+    border: 0.2px solid #e2e2e2;
+    border-radius: 8px;
+  }
+
+  .right-col form input:focus{
+    outline: none;
+  }
+
+  .right-col form textarea{
+    width: 100%;
+    max-width: 65%;
+    margin: 10px 40px;
+    padding: 8px 20px;
+    font-size: 15px;
+    border: 0.2px solid #e2e2e2;
+    border-radius: 10px;
+  }
+
+  .right-col form textarea:focus{
+    outline: none;
+  }
+
+  .right-col form button{
+    background-color: #1eaa97;
+    color: white;
+    padding: 5px 40px;
+    margin: 20px 40px;
+    border: none;
+    border-radius: 50px;
+  }
+
+  .right-col form button:hover{
+    background-color: #158484;
+  }
+
+  .send-popup {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+  }
+
+  .send-content {
+    background: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    max-width: 400px;
+    width: 90%;
+  }
+
+ .send-content h4 {
+    margin-bottom: 15px;
+    color: #158484;
+  }
+
+
+
+  /*---------------Booking Section------------*/
+
+  .booking{
+    margin-top: 100px;
+  }
+
+  .booking .heading-section{
+    margin: 20px 150px;
+  }
+
+  .booking .heading-section h1{
+    font-size: 60px;
+    font-weight: bold;
+    text-align: center;
+  }
+
+  .booking .heading-section h5{
+    font-size: 20px;
+    text-align: center;
+  }
+
+  .booking .heading-section p{
+    font-size: 15px;
+    text-align: center;
+  }
+
+
+  .booking .container{
+    margin: auto;
+  }
+
+  .booking .booking-form{
+    padding: 20px 30px;
+    box-sizing: border-box;
+    border: none;
+    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  }
+
+  .booking .booking-form h3{
+    font-size: 25px;
+    font-weight: 700;
+    margin-top: 30px;
+  }
+
+  .booking-form .travel-details{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    font-size: 15px;
+  }
+
+  .travel-details .form-group .form-control{
+    width: 250px;
+    padding: 5px 20px;
+    font-size: 13px;
+  }
+
+  .booking-form .passenger-details{
+    display: flex;
+    gap: 40px;
+    width: 100%;
+  }
+
+  
+  .passenger-details .passenger-count {
+    margin-top: 10px;
+  }
+  
+  .passenger-details .passenger-count label {
+    font-weight: 500;
+    margin-right: 15px;
+  }
+  
+  .passenger-count .row-align {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    width: 100%;
+    border: 0.2px solid #e3e3e3;
+    border-radius: 5px;
+    padding: 5px 20px;
+    font-size: 13px;
+  }
+
+  .counter {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    font-size: 18px;
+  }
+  
+  .counter button {
+    width: 25px;
+    height: 25px;
+    font-size: 18px;
+    cursor: pointer;
+    border: none;
+    border-radius: 20px;
+    background-color: #158484;
+    color: white;
+  }
+  
+  .booking-form .contact-details {
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+    margin: 20px 0;
+  }
+  
+  .contact-details .input-group {
+    display: flex;
+    flex-direction: column;
+    max-width: 500px;
+    width: 100%;
+  }
+  
+  .contact-details .input-group label {
+    margin-bottom: 5px;
+    font-weight: 500;
+  }
+  
+  .contact-details .input-group input {
+    padding: 5px 20px;
+    font-size: 13px;
+    border: 0.2px solid #cac8c8;
+    border-radius: 5px !important;
+  }
+
+  .booking-form .form-control, .booking-form .contact-details input:focus{
+    outline: none;
+  }
+
+
+
+
+  /*-----------Footer Code------------*/
+  footer {
+    background: #292929;
+    width: 100%;
+    height: auto;
+    padding: 10px;
+    color: #fff;
+    padding: 10px 100px;
+    margin-top: 50px;
+    bottom: 0;
+    z-index: auto;
+  }
+  
+  footer .container1 {
+    width: 100%;
+    padding: 20px;
+  }
+  
+  .footer-logo {
+    width: 100%;
+    height: auto;
+    max-width: 80%;
+    margin-bottom: 30px;
+  }
+  
+  .updates {
+    position: relative;
+    float: left;
+    padding: 5px;
+  }
+  
+  .updates label {
+    font-size: 18px;
+  }
+  
+  .updates input {
+    width: 100%;
+    max-width: 250px;
+    background: transparent;
+    border: 0.5px solid #cac8c8;
+    border-radius: 50px;
+    padding: 5px 20px 5px 50px;
+    font-size: 15px;
+    margin-top: 5px;
+    color: white;
+  }
+  
+  .updates input:focus {
+    outline: none;
+  }
+  
+  .updates input::placeholder {
+    color: #cac8c8;
+  }
+  
+  .updates i {
+    position: relative;
+    left: -235px;
+    top: 2.5px;
+    color: #cac8c8;
+  }
+  
+  .updates button {
+    position: relative;
+    border: none;
+    border-radius: 50px;
+    background: #1ccbb4;
+    color: white;
+    font-size: 15px;
+    font-weight: 500;
+    padding: 5px;
+    width: 250px;
+    margin-top: 10px;
+  }
+  
+  .links {
+    position: relative;
+    padding: 10px 20px;
+    color: white;
+  }
+  
+  .links h5 {
+    font-weight: 700;
+  }
+  
+  .links .line {
+    width: 120px;
+    height: 0.5px;
+    background: white;
+  }
+  
+  .links ul {
+    list-style: none;
+    margin-top: 20px;
+  }
+  
+  .links ul li {
+    margin-top: 5px;
+  }
+  
+  .links ul li i {
+    position: relative;
+    margin-right: 10px;
+    top: 3px;
+    font-size: 18px;
+  }
+  
+  .social-links {
+    position: relative;
+    display: flex;
+    width: 200px;
+    top: 10px;
+    left: 30px;
+    justify-content: space-between;
+  }
+  
+  .social-links img {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .disclaimer {
+    position: relative;
+    width: 100%;
+    margin: 10px;
+    text-align: center;
+    padding: 2px 100px;
+  }
+  
+
+
+
+
+  
+  /*----Responsive Code-----*/
+@media only screen and (max-width: 600px) {
+    /*------Navigation bar Code---------*/
+    .navbar{
+      border-radius: 25px;
+      padding: 5px 10px 5px 0 !important;
+      z-index: 1000;
+    }
+  
+    .nav-link{
+      margin: auto;
+      font-size: 12px !important;
+    }
+  
+    .navbar-toggler:focus{
+      font-size: 10px;
+    }
+  
+    .search-section{
+      margin-top: 5px;
+    }
+  
+    .nav-link:hover::before {
+      width: 25%;
+    }
+  
+    .search{
+      font-size: 12px;
+    }
+
+   
+
+    /*-------Explore section---------*/
+   
+    .explore{
+      margin: 80px 40px;
+      padding: 0;
+    }
+
+    .explore .container .row .col{
+      height: 250px;
+     }
+
+     .explore .container .row{
+      margin: 0;
+     }
+
+    .explore-card img{
+      width: 150px;
+      height: 200px;
+      margin-top: 15px;
+      border-radius: 30px;
+    }
+
+    .explore .heading-section{
+      padding: 5px;
+    }
+  
+    .explore .heading-section h1{
+      font-size: 40px;
+      font-weight: bold;
+    }
+  
+   .explore .heading-section h5{
+      font-size: 12px;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+  
+   .explore .heading-section p{
+      font-size: 10px;
+      margin: 0;
+      padding: 0;
+    }
+
+
+
+     /*--------------Explore destination section----------*/
+     .explore .details
+     {
+       width: 140px;
+       padding: 8px 15px;
+       position: relative;
+       font-size: 10px;
+       top: -53px;
+       left: 5px;
+       margin-bottom: 0;
+     }
+   
+     .explore .details .book-btn{
+       padding: 10px 6px;
+       position: relative;
+       top: -18px;
+       left: 10px;
+       font-size: 10px;
+     }
+
+
+
+
+     /*-----------Packages Page--------------*/
+     .pricing-container {
+      flex-direction: column;
+      align-items: center;
+      gap: 30px;
+      padding: 0 10px;
+    }
+  
+    .pricing-container .left-card, .pricing-container .right-card, .pricing-container .large-card {
+      transform: none !important;
+      width: 100%;
+      max-width: 320px;
+      margin: 0 auto;
+      padding: 20px;
+      border-radius: 40px;
+    }
+  
+    .pricing-container .card h2{
+      font-size: 18px;
+    }
+
+    .pricing-container .price {
+      font-size: 50px;
+    }
+  
+    .pricing-container ul li {
+      font-size: 12px;
+    }
+
+    .right-card ul li{
+      margin-left: -10px;
+    }
+  
+    .pricing-container button {
+      font-size: 12px;
+      padding: 10px 20px;
+      width: 100%;
+    }
+     
+    .packages .heading-section{
+      padding: 5px;
+    }
+  
+    .packages .heading-section h1{
+      font-size: 40px;
+      font-weight: bold;
+    }
+  
+   .packages .heading-section h5{
+      font-size: 12px;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+  
+   .packages .heading-section p{
+      font-size: 10px;
+      margin: 5px 20px 20px 20px;
+    }
+
+
+
+    /*-------------Packages Deals------------*/
+    .banner-wrapper {
+      height: 400px;
+      margin-top: -150px;
+      margin-bottom: -100px;
+    }
+  
+    .blue-background {
+      width: 100%;
+      max-width: 80%;
+      border-radius: 0 20px 20px 0;
+      margin: auto;
+      padding: 10px 0px 10px 60px;
+    }
+  
+    .yellow-panel {
+      top: 120px;
+      left: 15px;
+      width: 45%;
+      height: 160px;
+      padding: 15px;
+      clip-path: polygon(0 0, 100% 0, 90% 100%, 0 100%);
+    }
+  
+    .content h2 {
+      font-size: 20px;
+    }
+  
+    .content .details {
+      font-size: 10px;
+      margin-bottom: 5px;
+    }
+  
+    .content .sub {
+      font-size: 8px;
+    }
+  
+    .image-box img {
+      width: 180px;
+      height: auto;
+      margin: 0 15px;
+    }
+
+
+
+    /*-----------Contact Us-------------*/
+    .contact {
+      margin: 100px 30px;
+    }
+  
+    .contact .container {
+      max-width: 100%;
+      box-shadow: none;
+    }
+  
+    .contact .container .row {
+      display: flex;
+      flex-direction: column;
+    }
+  
+    .contact .container .row .left-col {
+      padding: 30px 20px;
+      font-size: 16px;
+    }
+  
+    .contact .container .row .left-col ul li {
+      margin: 15px;
+      display: flex;
+      align-items: center;
+    }
+  
+    .contact .container .row .left-col ul li i {
+      font-size: 20px;
+      margin-right: 25px;
+      margin-top: -5px;
+    }
+  
+    .right-col {
+      padding: 20px;
+    }
+  
+    .right-col h4 {
+      font-size: 24px;
+      margin-left: 0;
+    }
+  
+    .right-col form input,
+    .right-col form textarea {
+      max-width: 100%;
+      margin: 10px 0;
+      padding: 10px 15px;
+    }
+  
+    .right-col form button {
+      margin: 20px 0;
+      padding: 10px 30px;
+      font-size: 16px;
+    }
+  
+    .contact .heading-section h1 {
+      font-size: 22px;
+      text-align: center;
+    }
+  
+    .contact .heading-section p {
+      font-size: 14px;
+      text-align: center;
+      padding: 0 10px;
+    }
+
+
+
+
+
+    /*---------------Booking Page--------------*/
+
+    .booking .heading-section h1{
+      font-size: 22px;
+      margin: 0;
+    }
+    .booking .heading-section p{
+      font-size: 14px;
+    }
+
+    .booking .booking-form {
+      padding: 15px 20px;
+      margin-bottom: 20px;
+    }
+  
+    .booking-form h3 {
+      font-size: 18px;
+      margin-top: 20px;
+    }
+  
+    .booking-form .travel-details {
+      flex-direction: column;
+      gap: 12px;
+    }
+  
+    .travel-details .form-group .form-control {
+      width: 100%;
+      max-width: 90%;
+      font-size: 14px;
+    }
+  
+    .booking-form .passenger-details {
+      flex-direction: column;
+      gap: 15px;
+    }
+  
+    .passenger-count .row-align {
+      flex-direction: row;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 10px;
+      width: 100%;
+      max-width: 60%;
+    }
+  
+    .booking-form .contact-details {
+      flex-direction: column;
+      gap: 15px;
+      margin: 15px 0;
+    }
+  
+    .contact-details .input-group {
+      width: 100%;
+      max-width: 90%;
+    }
+  
+    .contact-details .input-group input {
+      font-size: 14px;
+    }
+  
+    .counter {
+      gap: 8px;
+    }
+  
+    .counter button {
+      width: 30px;
+      height: 30px;
+      font-size: 16px;
+    }
+       
+
+
+
+    
+    /*--------Footer code-------*/
+    footer {
+      padding: 15px;
+    }
+    
+    .footer-logo {
+      max-width: 90%;
+      margin-bottom: 20px;
+    }
+    
+    .updates label {
+      font-size: 12px;
+    }
+    
+    .updates input {
+      font-size: 12px;
+      max-width: 200px;
+      padding: 5px 10px 5px 40px;
+    }
+    
+    .updates i {
+      left: 15px;
+      top: -25px;
+    }
+    
+    .updates button {
+      font-size: 12px;
+      padding: 5px;
+      width: 200px;
+      top: -25px;
+    }
+    
+    .links h5 {
+      font-size: 18px;
+    }
+    
+    .links ul li {
+      font-size: 12px;
+    }
+    
+    .links ul li i{
+      font-size: 13px;
+    }
+    .disclaimer {
+      width: 100%;
+      padding: 5px;
+    }
+    
+    .disclaimer p {
+      font-size: 12px;
+    }
+    
+    .social-links img {
+      width: 40px;
+      height: 40px;
+    }
+    
+    /* Layout adjustments */
+    footer .col-sm {
+      flex: 0 0 100%;
+      max-width: 100%;
+    }
+    
+    footer .container1 {
+      padding: 20px 15px 0 0;
+    }
+    
+    .links {
+      padding: 10px 5px;
+    }
+    
+    /* Display columns in pairs */
+    footer .col-sm:nth-child(1),
+    footer .col-sm:nth-child(2) {
+      flex: 0 0 45%;
+      max-width: 45%;
+    }
+    
+    footer .col-sm:nth-child(3),
+    footer .col-sm:nth-child(4) {
+      flex: 0 0 45%;
+      max-width: 45%;
+      display: none; /* Initially hide columns 3 and 4 */
+      opacity: 0;
+      transition: opacity 0.5s ease-in-out;
+    }
+    
+    /* "See More" button styling */
+    .see-more-btn {
+      display: block;
+      font-size: 14px;
+      color: #1ccbb4;
+      background: none;
+      border: none;
+      cursor: pointer;
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    }
+    
+    /* Hide the "See More" button in desktop view */
+    @media (min-width: 601px) {
+      .see-more-btn {
+        display: none;
+      }
+    
+      /* Ensure columns are visible in desktop view */
+      footer .col-sm:nth-child(3),
+      footer .col-sm:nth-child(4) {
+        display: block;
+        opacity: 1;
+      }
+    }
