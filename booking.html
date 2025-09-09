@@ -92,7 +92,7 @@
                   <!-- Package Dropdown -->
                   <div class="form-group">
                     <label for="package">Package</label>
-                    <select id="package" class="form-control">
+                    <select id="package" class="form-control" onchange="updateSummary()">
                       <option value="">Select Package</option>
                       <option value="1200">Diamond Package</option>
                       <option value="2500">Silver Package</option>
@@ -166,28 +166,29 @@
               <div class="p-4 bg-white" style="border-radius: 20px; box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;">
                 <h5 class="mb-3">Summary</h5>
                 <div class="d-flex justify-content-between">
-                  <span>Package Selected</span><span></span>
-                </div>
-                <div class="d-flex justify-content-between">
-                  <span>Package price</span><span>0</span>
-                </div>
-                <div class="d-flex justify-content-between">
-                  <span>Total Adults </span><span>0</span>
-                </div>
-                <div class="d-flex justify-content-between">
-                  <span>Total Children </span><span>0</span>
-                </div>
-                <hr />
-                <div class="d-flex justify-content-between">
-                  <span>Sub Total</span><span>0</span>
-                </div>
-                <div class="d-flex justify-content-between">
-                  <span>VAT (15%)</span><span>0</span>
-                </div>
-                <hr />
-                <div class="d-flex justify-content-between fw-bold">
-                  <span>Total</span><span>0</span>
-                </div>
+  <span>Package Selected</span><span id="packageName">—</span>
+</div>
+<div class="d-flex justify-content-between">
+  <span>Package price</span><span id="packagePrice">0</span>
+</div>
+<div class="d-flex justify-content-between">
+  <span>Total Adults </span><span id="adultTotal">0</span>
+</div>
+<div class="d-flex justify-content-between">
+  <span>Total Children </span><span id="childTotal">0</span>
+</div>
+<hr />
+<div class="d-flex justify-content-between">
+  <span>Sub Total</span><span id="subTotal">0</span>
+</div>
+<div class="d-flex justify-content-between">
+  <span>VAT (15%)</span><span id="vat">0</span>
+</div>
+<hr />
+<div class="d-flex justify-content-between fw-bold">
+  <span>Total</span><span id="total">0</span>
+</div>
+
                 <button class="btn btn-info w-100 mt-4 text-white" onclick="handleBooking()" style="background: #158484; border: none; border-radius: 30px;">Submit</button>
               </div>
             </div>
@@ -295,19 +296,21 @@
 function updateSummary() {
     const adultCount = parseInt(document.getElementById('adultCount').textContent);
     const childCount = parseInt(document.getElementById('childCount').textContent);
-    
-    const packageName = document.getElementById('package');
-    const packageSelect = document.getElementById('package').value;
-    //package cost code to be embedded
-    const packagePrice = parseFloat(selectedOption.getAttribute('data-cost')) || 0;
 
+    const packageSelect = document.getElementById('package');
+    const selectedOption = packageSelect.options[packageSelect.selectedIndex];
+    const packageName = selectedOption.text; // e.g. "Diamond Package"
+    const packagePrice = parseFloat(packageSelect.value) || 0; // e.g. 1200
+
+    // Calculate totals
     const adultTotal = adultCount * packagePrice;
-    const childTotal = childCount * (packagePrice * 0.7);
+    const childTotal = childCount * (packagePrice * 0.7); // children = 70% price
     const subTotal = adultTotal + childTotal;
     const vat = subTotal * 0.15;
     const total = subTotal + vat;
 
-    document.getElementById('packageName').textContent = `${packageName}`;
+    // Update summary section
+    document.getElementById('packageName').textContent = packageName;
     document.getElementById('packagePrice').textContent = `£${packagePrice.toFixed(2)}`;
     document.getElementById('adultTotal').textContent = `£${adultTotal.toFixed(2)}`;
     document.getElementById('childTotal').textContent = `£${childTotal.toFixed(2)}`;
@@ -315,6 +318,7 @@ function updateSummary() {
     document.getElementById('vat').textContent = `£${vat.toFixed(2)}`;
     document.getElementById('total').textContent = `£${total.toFixed(2)}`;
 }
+
 
     //Previous Code
     window.onload = function () {
