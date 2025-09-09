@@ -283,6 +283,38 @@
 
 <!------------New Code-------------->
   <script>
+
+    function changeCount(id, delta) {
+    const span = document.getElementById(id);
+    let value = parseInt(span.textContent);
+    value = Math.max(0, value + delta);
+    span.textContent = value;
+    updateSummary();
+}
+
+function updateSummary() {
+    const adultCount = parseInt(document.getElementById('adultCount').textContent);
+    const childCount = parseInt(document.getElementById('childCount').textContent);
+    
+    const packageSelect = document.getElementById('package');
+    const selectedOption = packageSelect.options[packageSelect.selectedIndex];
+    const packagePrice = parseFloat(selectedOption.getAttribute('data-cost')) || 0;
+
+    const adultTotal = adultCount * packagePrice;
+    const childTotal = childCount * (packagePrice * 0.7);
+    const subTotal = adultTotal + childTotal;
+    const vat = subTotal * 0.15;
+    const total = subTotal + vat;
+
+    document.getElementById('packagePrice').textContent = `£${packagePrice.toFixed(2)}`;
+    document.getElementById('adultTotal').textContent = `£${adultTotal.toFixed(2)}`;
+    document.getElementById('childTotal').textContent = `£${childTotal.toFixed(2)}`;
+    document.getElementById('subTotal').textContent = `£${subTotal.toFixed(2)}`;
+    document.getElementById('vat').textContent = `£${vat.toFixed(2)}`;
+    document.getElementById('total').textContent = `£${total.toFixed(2)}`;
+}
+
+    //Previous Code
     window.onload = function () {
     const exploreLocation = localStorage.getItem('explore_location');
     const formLocation = localStorage.getItem('booking_location');
