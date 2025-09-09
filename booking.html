@@ -94,9 +94,9 @@
                     <label for="package">Package</label>
                     <select id="package" class="form-control">
                       <option value="">Select Package</option>
-                      <option value="">Diamond Package</option>
-                      <option value="">Silver Package</option>
-                      <option value="">Gold Package</option>
+                      <option value="1200">Diamond Package</option>
+                      <option value="2500">Silver Package</option>
+                      <option value="4500">Gold Package</option>
                     </select>
                   </div>
 
@@ -296,8 +296,9 @@ function updateSummary() {
     const adultCount = parseInt(document.getElementById('adultCount').textContent);
     const childCount = parseInt(document.getElementById('childCount').textContent);
     
-    const packageSelect = document.getElementById('package');
-    const selectedOption = packageSelect.options[packageSelect.selectedIndex];
+    const packageName = document.getElementById('package');
+    const packageSelect = document.getElementById('package').value;
+    //package cost code to be embedded
     const packagePrice = parseFloat(selectedOption.getAttribute('data-cost')) || 0;
 
     const adultTotal = adultCount * packagePrice;
@@ -306,6 +307,7 @@ function updateSummary() {
     const vat = subTotal * 0.15;
     const total = subTotal + vat;
 
+    document.getElementById('packageName').textContent = `${packageName}`;
     document.getElementById('packagePrice').textContent = `£${packagePrice.toFixed(2)}`;
     document.getElementById('adultTotal').textContent = `£${adultTotal.toFixed(2)}`;
     document.getElementById('childTotal').textContent = `£${childTotal.toFixed(2)}`;
