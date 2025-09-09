@@ -124,6 +124,8 @@ function increaseCount(id) {
   const counter = document.getElementById(id);
   let value = parseInt(counter.innerText);
   counter.innerText = value + 1;
+
+  updateSummary(); // refresh totals
 }
 
 function decreaseCount(id) {
@@ -132,6 +134,8 @@ function decreaseCount(id) {
   if (value > 0) {
     counter.innerText = value - 1;
   }
+
+  updateSummary(); // refresh totals
 }
 
 
